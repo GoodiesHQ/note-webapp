@@ -229,7 +229,7 @@ export default {
         this.$http.post(this.urls.api + "/create", {title: t, note: n, expiration: e}).then(
           suc => {
             if (suc.status === 201){
-              this.output.url = this.urls.note + suc.data.message;
+              this.output.url = this.urls.note + suc.data.uid;
               this.form.show = false;
               this.output.show = true;
             }
@@ -278,8 +278,8 @@ export default {
     this.$http.post(this.urls.api + "/get", {"uid": uid}).then(
       suc => {
         if (suc.data.success === true){
-          this.form.title = suc.data.message.title;
-          this.form.note = suc.data.message.note;
+          this.form.title = suc.data.title;
+          this.form.note = suc.data.note;
           this.form.show = true;
         }
       },
