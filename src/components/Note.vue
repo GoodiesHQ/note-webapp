@@ -118,8 +118,9 @@ function randomstr (size, symbols) {
 export default {
   data: () => ({
     urls: {
-      api: "http://note.datalinknetworks.net/api",
-      note: "http://note.datalinknetworks.net/#/",
+      // DRY violation but this was an afterthought
+      api: window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/api",
+      note: window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '') + "/#/",
     },
     copySuccess: false,
     formDisabled: false,
